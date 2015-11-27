@@ -1,0 +1,15 @@
+<ion-view view-title="意见反馈">
+<ion-pane>
+    <ion-content style="margin-bottom: 44px;background-color:#f5f5f5" delegate-handle="msgContain">
+            <ol class="mmx-feedback-msgs">
+                <li ng-repeat="message in feedback.messages" ng-bind-html="message.content"></li>
+            </ol>
+    </ion-content>
+    <div class="bar bar-footer">
+      <form name="fbForm" style="width:96%" id="fbForm" role="form" ng-submit="feedback.sendMsg()">  
+        <input type="text" style="width:100%" ng-model="feedback.message" placeholder="请输入意见反馈" required />
+        <input type="submit" class="button button-balanced mmx-feedback-btn" ng-class="{'button-stable':fbForm.$invalid}" ng-disabled="fbForm.$invalid" value="发送" />
+      </form>
+    </div>
+</ion-pane>
+</ion-view>

@@ -1,0 +1,15 @@
+<ion-view view-title="首页">
+    <ion-nav-title>
+        <div class="home-search-area">
+            <i class="icon ion-search" style="position:absolute;top:-4px;left:2px;display:inline-block;height:34px;vertical-align:middle;"></i>
+            <input type="text" ng-click="shops.search()" style="display: inline-block;position: absolute;left: 18px;background-color: #e6b511;height: 32px;" class="home-search-input" placeholder="搜索商店" />
+        </div>
+        <a  class="scan-icon" ng-click="shops.scan()">
+            <i class="icon ion-qr-scanner"></i>
+        </a>
+    </ion-nav-title>
+    <ion-content>
+        <h1>首页</h1>
+        <span>{{name}}</span>
+    </ion-content>
+</ion-view>

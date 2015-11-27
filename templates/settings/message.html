@@ -1,0 +1,27 @@
+<ion-view view-title="消息设置">
+    <ion-content style="background-color:#f5f5f5">
+        <ul class="list">
+            <li class="item item-toggle no-border">
+             接收所有粉丝店消息推送
+             <label class="toggle toggle-balanced">
+               <input type="checkbox">
+               <div class="track">
+                 <div class="handle"></div>
+               </div>
+             </label>
+            </li>
+            <div class="item item-divider no-border" style="font-size:14px;color:#999">
+              粉丝店列表
+            </div>
+            <li class="item item-toggle" ng-class="{'no-top-border': $first,'no-bottom-border': $last}" ng-repeat="shop in settings.message.shops track by $index">
+             {{shop.name}}
+             <label class="toggle toggle-balanced">
+               <input type="checkbox">
+               <div class="track">
+                 <div class="handle"></div>
+               </div>
+             </label>
+            </li>
+        </ul>
+    </ion-content>
+</ion-view>

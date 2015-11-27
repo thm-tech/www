@@ -1,0 +1,13 @@
+<ion-view view-title="城市">
+    <ion-content style="background-color:#f5f5f5">
+        <div class="row">
+          <div class="col">
+            <ul class="city-list">
+                <li class="city-text" ng-click="cities.selectCity(city)" ng-class="{'cur-city-text': cities.curCityId == city.id}" ng-repeat="city in cities.cities">
+                    <a class="city-name">{{city.name}}</a>
+                </li>
+            </ul>
+          </div>
+        </div>
+    </ion-content>
+</ion-view>
