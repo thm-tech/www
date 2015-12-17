@@ -1,4 +1,4 @@
-define(['angular','ionic'], function(angular,ionic) {
+define(['ionicBundle'], function() {
     'use strict';
     function feedbackCtrl($rootScope,$scope,$http,$timeout,$ionicFrostedDelegate,$ionicScrollDelegate) {
         var self = this;

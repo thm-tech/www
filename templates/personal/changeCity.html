@@ -1,0 +1,24 @@
+<ion-modal-view>
+    <ion-header-bar>
+        <h1 class="title">选择城市</h1>
+        <button class="button button-clear button-positive" ng-click="account.cityModal.hide();" >关闭</button>
+    </ion-header-bar>
+    <ion-content>
+        <form name="cityForm" ng-submit="saveCity()">           
+            <label class="item item-input item-select">
+              <span class="input-label">省份</span>
+              <select ng-model="account.province" ng-change="changeProvince(account.province)" ng-options="province.province_name for province in account.provinces" >
+              </select>
+            </label>
+
+            <label class="item item-input item-select">
+              <span class="input-label">城市</span>
+              <select ng-model="account.city" ng-options="city.city_name for city in account.cities" >
+              </select>
+            </label>
+            <div style="text-align:center">
+            <button class="button button-balanced" style="width:80%;top:15px" type="submit">保存</button>
+            </div>
+        </form>
+    </ion-content>
+</ion-modal-view>

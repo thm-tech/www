@@ -1,0 +1,62 @@
+<ion-modal-view view-title="编辑地址">
+    <ion-header-bar class="bar-energized">
+        <h1 class="title">编辑地址</h1>
+        <button class="button button-clear button-positive" ng-click="address.modModal.hide();" >关闭</button>
+    </ion-header-bar>
+    <ion-content style="background-color:#f5f5f5">
+        <form id="addrForm" name="addrForm" ng-submit="address.saveAddress()" novalidate>
+        <ion-list class="user-addr-area">
+            <ion-item class="no-border">
+                <label for="name">
+                    姓名
+                    <input type="text" id="name" ng-model="address.showAddress.name" required>
+                </label>
+            </ion-item>
+            <ion-item class="no-border">
+                <label for="phone">
+                    手机
+                    <input type="text" id="phone" ng-model="address.showAddress.phone" required>
+                </label>
+            </ion-item>
+            <ion-item class="no-border">
+                <!-- <label for="province">
+                    省份
+                    
+                </label> -->
+                <label class="item item-input item-select">
+                    <div class="input-label">
+                     省份
+                    </div>
+                    <select ng-model="address.province" ng-change="address.changeProvince(address.province)" ng-options="province.province_name for province in address.provinces"></select>
+                </label>
+            </ion-item>
+            <ion-item class="no-border">
+                <!-- <label for="city">
+                    城市
+                </label> -->
+                <label class="item item-input item-select">
+                    <div class="input-label">
+                     城市
+                    </div>
+                    <select ng-model="address.city" ng-change="address.changeCity(city)" ng-options="city.city_name for city in address.cities"></select>
+                   </label>
+            </ion-item>
+            <ion-item class="no-border">
+                <label for="address">
+                    地址
+                    <input type="text" id="address" ng-model="address.showAddress.address" required>
+                </label>
+            </ion-item> 
+            <ion-item class="no-border">
+                <label for="postcode">
+                    邮编
+                    <input type="text" id="postcode" ng-model="address.showAddress.postcode" required>
+                </label>
+            </ion-item>
+        </ion-list>
+            <div style="text-align:center">
+                <button type="submit" style="margin:10px;width:90%" class="button button-balanced" ng-disable="addrForm.$invalid">保存</button>
+            </div>
+        </form>
+    </ion-content>
+</ion-modal-view>

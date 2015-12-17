@@ -2,35 +2,41 @@
 
 /*global define, require */
 
-define(['angular',
-        'ionic',
-        'uiRouter',
+define([
+      'ionicBundle',
+//'angular',
+//        'ionic',
+//        'uiRouter',
         'config',
  //       'filters/filters',
         'services/services',
  //       'directives/directives',
         'controllers/controllers',
-        'ionicAngular',
+//        'ionicAngular',
         'ngCordova',
-        'frostedGlass'
+        'frostedGlass',
+        'angularQrcode'
         ],
 
-    function (angular, uiRouter) {
+    function () {
         'use strict';
 
         var app = angular.module('mmxApp', [
-            'ionic',
-            'ngCordova',
-            'mmx.controllers',
-            'mmx.config',
-            'ui.router',
-//            'mmx.filters',
-            'mmx.services',
-            'ionic.contrib.frostedGlass'
-//            'mmx.directives',
+             'ionic',
+             'monospaced.qrcode',
+              'ngCordova',
+              'mmx.controllers',
+              'mmx.config',
+             'ui.router',
+// // //            'mmx.filters',
+              'mmx.services',
+              'ionic.contrib.frostedGlass'
+// // //            'mmx.directives',
     ]);
+        console.log(app);
     app.run(function($ionicPlatform,$rootScope,$cordovaSQLite) {
       $rootScope.proxyURL = 'http://api.immbear.com';
+      $rootScope.chatURL = 'http://chat.immbear.com';
       $rootScope.account = {hasData: false};
 //      $rootScope.curCityId = 1; //设置了默认城市合肥
       $ionicPlatform.ready(function() {
@@ -49,7 +55,7 @@ define(['angular',
           if (window.localStorage.getItem('currentUser')) {
             var currentUser = window.localStorage.getItem('currentUser');
             $rootScope.account = {hasData: true};
-            $rootScope.userDB = $cordovaSQLite.openDB({ name: "mmx_" + currentUser});
+            $rootScope.userDB = $cordovaSQLite.openDB({ name: "mmx_" + currentUser,location: 1});
           } else {
             $rootScope.account = {hasData: false};
 //           }

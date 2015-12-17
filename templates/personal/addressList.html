@@ -1,0 +1,22 @@
+<ion-view>
+    <ion-nav-title view-title="收货地址"> 
+        <i class="icon ion-plus" style="float:right;font-size:22px" ng-click="address.createAddress()"></i>
+    </ion-nav-title>
+    <ion-content>
+        <div style="padding-top: 100px;text-align: center;" ng-show="address.addressList.length == 0">
+            <p style="color: #999;font-size: 15px;">当前未添加收货地址</p>
+        </div>
+        <ion-list ng-show="address.addressList.length != 0" can-swipe="true">
+            <ion-item class="addr-item-wrapper" ng-click="showDetail(address)" ng-repeat="address in address.addressList" >
+                <span class="addr-item-name">{{address.name}}</span>
+                <span class="addr-item-phone">{{address.phone}}</span>
+                <a ng-if="!address.default" ng-click="setDefault($event,address)" href="" >设为默认</a>
+                <span class="addr-item-default" ng-if="address.default" >默认地址</span>
+                <p class="addr-item-text">{{address.address}}</p>    
+                <ion-option-button class="button-assertive"ng-click="delete(address,$index)">
+                    删除
+                </ion-option-button>
+            </ion-item>
+        </ion-list>        
+    </ion-content>
+</ion-view>

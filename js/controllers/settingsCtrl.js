@@ -1,6 +1,6 @@
 define(function() {
     'use strict';
-    function settingsCtrl($rootScope,$scope,$http,$location,$ionicActionSheet,$timeout) {
+    function settingsCtrl($rootScope,$scope,$http,$location,$ionicActionSheet,$timeout,$cordovaSQLite) {
         $scope.name = 'this is settings';
         var host = $rootScope.proxyURL;
         var self = this;
@@ -39,6 +39,16 @@ define(function() {
                 data: {}
             })
             .success(function(data) {
+                $rootScope.userDB.close(function() {
+                    console.log('close dbbase....');
+                });
+
+                $cordovaSQLite.deleteDB({name:$rootScope.userDB.dbname})
+                .then(function() {
+                    console.log('delete db');  
+                    console.log(Object.keys($rootScope.userDB));                 
+                });;
+
                 console.log('logout successfully');
 //                alert('success logout');
                 $scope.$emit('logout');
@@ -62,6 +72,6 @@ define(function() {
             {name: 'Only天鹅湖万达店'}
         ];
     }
-    settingsCtrl.$inject = ['$rootScope','$scope','$http','$location','$ionicActionSheet','$timeout'];
+    settingsCtrl.$inject = ['$rootScope','$scope','$http','$location','$ionicActionSheet','$timeout','$cordovaSQLite'];
     return settingsCtrl;
 });

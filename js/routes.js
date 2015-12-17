@@ -17,6 +17,51 @@ define(['app'], function (app) {
                               }
                         }     
                   })
+                  .state('mmx.personalDetail', {
+                        url:'/personal/detail',
+                        views: {
+                              'menuContent': {
+                                    templateUrl: 'templates/personal/personalDetail.html',
+                                    controller: 'accountCtrl'
+                              }
+                        }
+                  })
+                  .state('mmx.nameChange', {
+                        url: '/personal/detail/changeName',
+                        views: {
+                              'menuContent': {
+                                    templateUrl: 'templates/personal/changeName.html',
+                                    controller: 'changeNameCtrl'
+                              }
+                        }
+                  })
+                  .state('mmx.phoneChange', {
+                        url: '/personal/detail/changePhone',
+                        views: {
+                              'menuContent': {
+                                    templateUrl: 'templates/personal/changePhone.html',
+                                    controller: 'changePhoneCtrl'
+                              }
+                        }
+                  })
+                  .state('mmx.address', {
+                        url: '/personal/detail/addressList',
+                        views: {
+                              'menuContent': {
+                                    templateUrl: 'templates/personal/addressList.html',
+                                    controller: 'addressListCtrl'
+                              }
+                        }
+                  })
+                  // .state('mmx.addressDetail', {
+                  //       url: '/personal/detail/addressList/:id',
+                  //       views: {
+                  //             'menuContent': {
+                  //                   templateUrl:'templates/personal/addressDetail.html',
+                  //                   controller: 'addressListCtrl'
+                  //             }
+                  //       }
+                  // })
             	.state('mmx.shops', {
             		url:'/shops',
             		views: {

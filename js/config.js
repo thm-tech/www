@@ -1,6 +1,6 @@
 /*global define */
 
-define(['angular'], function (angular) {
+define(['ionicBundle'],function () {
 	'use strict';
   
 	return angular.module('mmx.config', [])

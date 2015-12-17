@@ -1,0 +1,23 @@
+<ion-view view-title="绑定新手机号">
+    <ion-content style="background-color:#f5f5f5">
+        <ion-list>
+            <ion-item>
+                <label>
+                    <span>当前绑定手机号:</span>
+                    <span>{{phone.info.phone}}</span>
+                </label>
+            </ion-item>
+            <ion-item style="text-align:center">
+                <form id="codeForm" name="codeForm" class="phone-code-form" ng-submit="phone.verifyCode()" novalidate>
+                    <input type="tel" ng-model="phone.bindPhone" placeholder="填写新手机号" required>
+                    <button ng-show="!phone.verClicked" type="submit" class="button button-balanced button-small" ng-disabled="codeForm.$invalid || phone.bindPhone.length != 11">获取验证码</button>
+                    <input type="text" style="position: relative;display: inline-block;top:0;right: 3px;width: 75px;height: 33px;font-size:12px;color: #333;text-align:center;border:none" ng-model="phone.reSend" ng-show="phone.verClicked" disabled>
+                </form>
+                <form id="bindForm" name="bindForm" class="phone-bind-form" ng-submit="phone.bind()">
+                    <input type="text" ng-model="phone.vercode" placeholder="填写验证码" required><br />
+                    <button class="button button-balanced" type="submit" ng-disabled="bindForm.$invalid">绑定</button>
+                </form>
+            </ion-item>
+        </ion-list>
+    </ion-content>
+</ion-view>

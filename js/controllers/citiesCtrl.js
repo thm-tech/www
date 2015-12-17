@@ -1,4 +1,4 @@
-define(['angular'], function(angular) {
+define(['ionicBundle'], function() {
     'use strict';
     function citiesCtrl($rootScope,$scope) {
         var self = this;

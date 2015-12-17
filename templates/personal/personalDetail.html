@@ -1,0 +1,55 @@
+<ion-view  view-title="我" >
+    <div class="user-qrcode animation-show" ng-click="account.toggleQrcode()" ng-show="account.qrcode">
+      <div class="qrcode-bk">
+        <qrcode  size="200" data="{{account.info.qrcode}}">
+        </qrcode>
+        <p>扫扫上面的二维码加我好友</p>
+      </div>
+    </div>
+    <ion-content style="background-color: #f5f5f5">
+        <div class="list" style="margin-top: 15px;">
+            <a class="item item-avatar-right account-info no-border" ng-click="account.popSelectImg()" href="">
+              <img style="top:5px" src="{{account.info.portrait}}@50w_50h_0e_1l" alt="头像">
+              <h2>头像</h2>
+            </a>
+            <a href="#/mmx/personal/detail/changeName" class="item item-avatar-right account-info no-bottom-border">
+              <h2>昵称</h2>
+              <span>{{account.info.name}}</span>  
+            </a>
+        </div>
+        <div class="list">
+            <a href="" class="item item-avatar-right account-info no-border">
+              <h2>喵喵号</h2>
+              <span>{{account.info.mcode}}</span>  
+            </a>
+            <a href="" class="item item-avatar-right account-info no-bottom-border" ng-click="account.toggleQrcode()">
+              <h2>二维码</h2> 
+              <i class="icon ion-qrcode"></i>
+            </a>
+            <a href="#/mmx/personal/detail/changePhone" class="item item-avatar-right account-info no-bottom-border" >
+              <h2>手机号</h2>
+              <span>{{account.info.phone}}</span>  
+            </a>
+        </div>
+        <div class="list">
+            <a href="" ng-click="account.popGenderModal()" class="item item-avatar-right account-info no-border">
+              <h2>性别</h2>
+              <span>{{account.info._gender}}</span>  
+            </a>
+            <a href="" ng-click="account.showCities()" class="item item-avatar-right account-info no-bottom-border">
+              <h2>城市</h2>
+              <span>{{account.info.city_name}}</span>
+              <span ng-if="!account.info.city">未选择</span> 
+            </a>
+            <a href="#/mmx/personal/detail/addressList" class="item item-avatar-right account-info no-bottom-border">
+              <h2>收货地址</h2>
+              <span style="font-size: 14px;color:#3EA03E;vertical-align: middle;">
+                修改/添加
+                <i class="icon ion-ios-arrow-right" style="font-size:20px;color:#999;vertical-align:middle"></i>
+              </span>
+              <!-- <span>{{account.info.defaultAddr}}</span>
+              <span ng-if="!account.info.defaultAddr">未填写</span>   -->
+            </a>
+        </div>
+    </ion-content>
+</ion-view>

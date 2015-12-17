@@ -1,8 +1,9 @@
-define(['angular'], function(angular) {
+define(['ionicBundle'], function() {
     'use strict';
     var optDB = function($rootScope,$cordovaSQLite,$q) {
-        var deferred = $q.defer();
+
         function select(tbName,queryParams) {
+            var deferred = $q.defer();
             try {
                 alert('optDB.select');
                 if (angular.isString(queryParams)) {
@@ -11,6 +12,7 @@ define(['angular'], function(angular) {
                     //     queryStr += ',' + queryParams[i];
                     // }
                     // queryStr += queryStr + ' FROM ' + tbName;
+                    console.log('userdbbbbbbbbbbb,' + $rootScope.userDB.dbname);
                     $cordovaSQLite.execute($rootScope.userDB,queryStr,[])
                     .then(function(res) {
                         deferred.resolve(res);
@@ -27,13 +29,16 @@ define(['angular'], function(angular) {
         }
 
         function insert(tbName,insertParams,insertData,placeStr) {
+            var deferred = $q.defer();
             try {
                 if (angular.isString(insertParams) && angular.isArray(insertData) && angular.isString(placeStr)) {
-                    var insertStr = 'INSERT INTO ' + tbName + insertParams + ' VALUES ' + placeStr;
+                    var insertStr = 'INSERT INTO ' + tbName + ' ' + insertParams + ' VALUES ' + placeStr;
+                    console.log('insert sql is ,' + insertStr);
                     $cordovaSQLite.execute($rootScope.userDB,insertStr,insertData)
                     .then(function(res) {
                         deferred.resolve(res);
                     },function(err) {
+                        alert(err.message);
                         deferred.reject(err);
                     });
                 } else {
@@ -46,6 +51,7 @@ define(['angular'], function(angular) {
         }
 
         function update(tbName,updateParams,updateData) {
+            var deferred = $q.defer();
             try {
                 if (angular.isString(updateParams) && angular.isArray(updateData)) {
                     var updateStr = 'UPDATE ' + tbName + ' SET ' + updateParams;

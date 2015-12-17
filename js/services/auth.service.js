@@ -1,4 +1,4 @@
-define(['angular','md5'], function(angular) {
+define(['ionicBundle','md5'], function() {
     'use strict';
     var loginAuth = function($ionicModal,$rootScope,$http) {
         var Amodal;
